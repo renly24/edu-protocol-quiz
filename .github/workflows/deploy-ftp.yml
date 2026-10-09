@@ -1,0 +1,15 @@
+name: Deploy to FTP server
+
+# 共通ワークフロー（renly24/edu-deploy-workflows）でビルドし、FTP サーバーの
+# digital/edu-protocol-quiz にアップロードする。
+# 公開 URL: http://e.gmobb.jp/omaesensei/digital/edu-protocol-quiz/
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    uses: renly24/edu-deploy-workflows/.github/workflows/ftp-deploy.yml@main
+    secrets: inherit
